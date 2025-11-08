@@ -1,0 +1,53 @@
+# Config Format
+# service-name:
+#   host: <hostname of service>
+#   port: <port for tcp connection>
+
+chatgpt:
+  host: chatgpt.com
+  port: 443 # Initiating a tcp connection on https port
+google:
+  host: google.com
+  port: 443
+
+# Proxied lan servers
+vaultwarden:
+  host: vaultwarden.divij.xyz
+  port: 443 # Connection over https
+couchdb:
+  host: couchdb.divij.xyz
+  port: 443
+
+unreachable_local:
+  host: 192.168.1.69
+  port: 8000
+
+localhost:
+  host: localhost
+  port: 7766
+
+# [termux]:~/coding/are-you-alive $ nmap -sT localhost -p-
+# Starting Nmap 7.98 ( https://nmap.org ) at 2025-11-05 17:20 +0530
+# Nmap scan report for localhost (127.0.0.1)
+# Host is up (0.00070s latency).
+# Other addresses for localhost (not scanned): ::1
+# Not shown: 65529 closed tcp ports (conn-refused)
+# PORT      STATE SERVICE
+# 8022/tcp  open  oa-system
+# 10150/tcp open  unknown
+# 10152/tcp open  unknown
+# 20241/tcp open  unknown
+# 33633/tcp open  unknown
+# 46888/tcp open  unknown
+
+non_http_port:
+  host: 192.168.1.201
+  port: 8022 # SSH ports also use TCP to intiate connections
+valid_ip_but_random_port:
+  host: 192.168.1.201
+  port: 9000
+
+
+# Output
+# [termux]:~/coding/are-you-alive $ ./check.py
+# {'chatgpt': True, 'google': True, 'vaultwarden': True, 'couchdb': True, 'unreachable_local': False, 'localhost': False, 'non_http_port': True, 'valid_ip_but_random_port': False}

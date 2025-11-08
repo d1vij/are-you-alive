@@ -1,0 +1,3 @@
+# Crontab setup should look like this
+# <run interval config> <fullpath to 
+*/5 * * * * bash "/full/path/to/check.sh"
